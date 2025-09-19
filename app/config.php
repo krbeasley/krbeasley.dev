@@ -51,16 +51,10 @@ function config(string $configPath) {
     return recursiveArraySearch($contents, $searchElements);
 }
 
-function getAndReplace(string $view, array $replacements = []) : string
-{
-    if (!file_exists(dirname(__DIR__) . "/views/$view.php")) {
-        throw new \Exception("View '$view' not found");
-    }
-
-    $contents = file_get_contents(dirname(__DIR__) . "/views/$view.php");
-    foreach ($replacements as $key => $value) {
-        $contents = str_replace("{{ $key }}", $value, $contents);
-    }
-
-    return $contents;
+/** Dump and Die */
+function dd(mixed ...$vars) : void {
+    echo "<pre style='color: green; font-size: 12px; line-height: 16px; background-color: #1c1c1c; padding: 10px;'>";
+    var_dump($vars);
+    echo "</pre>";
+    die(0);
 }
