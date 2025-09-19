@@ -1,20 +1,15 @@
 #-----------------------------------------------------------------------------------------------------------------------
 # kylerossbeasley main .htaccess file.
 #
-# Assumes the site lives at /var/www/kylerossbeasley during the dev work and lives in side the PUBLIC_HTML folder on
+# Assumes the site lives at /var/www/krbeasley.dev during the dev work and lives in side the PUBLIC_HTML folder on
 # Hostinger's shared hosting servers.
 #-----------------------------------------------------------------------------------------------------------------------
 
-# Pretty URLs
+# Every request goes to the index page unless it's an actual file
 RewriteEngine On
-
-# If request matchest an actual PHP file, serve it
-RewriteCond %{REQUEST_FILENAME}.php -f
-RewriteRule ^(.+?)/?$ $1.php
-
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^ index.php [L]
+RewriteRule ^(.*)$ /index.php?path=$1 [NC,L,QSA]
 
 ########################################################################################################################
 # SECURITY AND ACCESS CONTROL
@@ -47,7 +42,8 @@ Options -Indexes
 </Files>
 
 # 404 all requests made to the these directories
-RedirectMatch 404 ^/(node_modules|\.git|config|templates|vendor)
+RedirectMatch 404 ^/(node_modules|\.git|config|templates|vendor|app)
+RedirectMatch 403 ^\.htaccess
 
 ########################################################################################################################
 # CUSTOM ERROR PAGES
