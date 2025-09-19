@@ -1,26 +1,27 @@
 {
-    "name": "krbeasley/kylerossbeasley.com",
-    "description": "The source code for the kylerossbeasley website",
-    "type": "project",
-    "license": "None",
-    "authors": [
-        {
-            "name": "Kyle Beasley",
-            "email": "kyle.beasley17@gmail.com"
-        }
-    ],
-    "minimum-stability": "dev",
-    "require": {
-        "php" : "^8.2",
-        "vlucas/phpdotenv": "^5.6@dev",
-        "twig/twig": "^3.21"
-    },
-    "autoload": {
-        "files" : [
-            "app/config.php"
-        ],
-        "psr-4": {
-            "App\\" : "app/"
-        }
+  "name": "krbeasley/kylerossbeasley.com",
+  "description": "The source code for the kylerossbeasley website",
+  "type": "project",
+  "license": "None",
+  "authors": [
+    {
+      "name": "Kyle Beasley",
+      "email": "kyle.beasley17@gmail.com"
     }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php" : "^8.4",
+    "vlucas/phpdotenv": "^5.6@dev",
+    "twig/twig": "^3.21",
+    "symfony/http-foundation": "7.3"
+  },
+  "autoload": {
+    "files" : [
+      "app/config.php"
+    ],
+    "psr-4": {
+      "App\\" : "app/"
+    }
+  }
 }
