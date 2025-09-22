@@ -22,7 +22,6 @@ $router = new Router(); // Load the router
 
 // Process the request
 try {
-
     $router->handle($request);
 } catch (\Exception $e) {
     echo $e->getMessage();
