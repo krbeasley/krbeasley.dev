@@ -7,16 +7,18 @@ ini_set('display_startup_errors', 1);
 require_once dirname(__DIR__) . "/vendor/autoload.php";
 
 use Dotenv\Dotenv;
+use \Symfony\Component\HttpFoundation\Request;
+use App\Router\Router;
 
 // Load the ENV file
 $dotenv = Dotenv::createImmutable(dirname(__DIR__));
 $dotenv->load();
 
 // Build the request
-$request = \Symfony\Component\HttpFoundation\Request::createFromGlobals();
+$request = Request::createFromGlobals();
 
 // Load the router
-$router = new \App\Router\Router(); // Load the router
+$router = new Router(); // Load the router
 
 // Process the request
 try {

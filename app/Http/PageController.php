@@ -11,12 +11,11 @@ class PageController
     protected FilesystemLoader $loader;
     protected Environment $twig;
     protected function __construct() {
-
         $this->loader = new FilesystemLoader(dirname(__DIR__, 2) . "/templates");
         $this->twig = new Environment($this->loader, []);
     }
 
-    /** Returns the home page
+    /** Returns the home page.
      * @throws Error
      */
     public static function home() : void
@@ -25,8 +24,7 @@ class PageController
         echo $c->twig->render("pages/home.html.twig", []);
     }
 
-    /** Returns the about page
-     *
+    /** Returns the about page.
      * @throws Error
      */
     public static function about() : void
@@ -35,8 +33,13 @@ class PageController
         echo $c->twig->render("pages/about.html.twig", []);
     }
 
-    /** Echo the HTML of the error pages with the correct code.
-     *
+    public static function hireMe() : void
+    {
+        $c = new PageController();
+        echo $c->twig->render("pages/hire-me.html.twig", []);
+    }
+
+    /** Returns one of the error pages.
      * @param int $code
      * @throws Error
      */

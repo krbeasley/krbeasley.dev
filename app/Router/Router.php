@@ -20,6 +20,7 @@ class Router
         $this->routes = [
             new Route("/", PageController::class, "home", ["GET"]),
             new Route("/about", PageController::class, "about", ["GET"]),
+            new Route("/hire-me", PageController::class, "hireMe", ["GET"]),
         ];
     }
 
@@ -31,7 +32,8 @@ class Router
     public function handle(Request $request) : void
     {
         // Make sure the router has the requested route
-        if (($routeIndex = $this->matchRoute($request->getPathInfo())) === -1) {
+        $routeIndex = $this->matchRoute($request->getPathInfo());
+        if ($routeIndex === -1) {
             call_user_func([PageController::class, "fallback"], 404);
             return;
         }
@@ -54,7 +56,19 @@ class Router
         }
 
         // Run the route's action
-        call_user_func([$class, $action]);
+        try {
+            call_user_func([$class, $action]);
+        } catch (Exception $e) {
+            // Get the error code
+            $code = $e->getCode();
+
+            // Check if it's a code we know how to handle
+            if (!in_array($code, [403, 404, 500], true)) {
+                $code = 500; // Set the code to 500 by default.
+            }
+
+            call_user_func([PageController::class, "fallback"], $code);
+        }
     }
 
     /** Checks if the router class has an exising route by path. Returns the matching
@@ -65,40 +79,45 @@ class Router
      */
     private function matchRoute(string $requestPath) : int
     {
+        // Break down the path into tokens
         $requestParts = explode("/", $requestPath);
         $requestElementCount = count($requestParts);
 
+        /* Loop through each of the loaded routes, splitting them into tokens,
+        then comparing each of those tokens with their counterpart supplied by
+        the request. */
         for ($routeIndex = 0; $routeIndex < count($this->routes); $routeIndex++) {
             /** @var Route $route */
             $route = $this->routes[$routeIndex];
 
+            // Get the route's tokens
             $routeParts = explode("/", $route->path);
             $routeElementCount = count($routeParts);
 
-            // ignore this iteration if the paths don't match in element count
+            // Ignore this route if the token lists aren't the same length.
             if ($routeElementCount !== $requestElementCount) {
                 continue;
             }
 
-            // check each of the route parts to see if they match their
-            // request counterparts
-            $tokensMatch = true;
+            // Start comparing tokens.
+            $tokensMatch = true;   // Default to a match and return false early
             for ($i = 0; $i < $routeElementCount; $i++) {
                 $routeToken = $routeParts[$i];
                 $requestToken = $requestParts[$i];
-                // tokens starting with : are placeholders and should be ignored
-                // for comparison
+
+                // Tokens beginning with : are placeholders and should be
+                // ignored for comparison
                 if (str_starts_with($routeToken, ":")) {
                     continue;
                 }
 
-                // indicate the routes didn't match at some point
+                // Indicate the tokens did not match
                 if ($routeToken !== $requestToken) {
                     $tokensMatch = false;
                 }
             }
 
-            // only return true when all matchable elements are valid
+            // Only return true when all matchable elements are valid
             if ($tokensMatch) {
                 return $routeIndex;
             }
