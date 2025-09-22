@@ -5,6 +5,7 @@ namespace App\Http;
 use Twig\Environment;
 use Twig\Error\Error;
 use Twig\Loader\FilesystemLoader;
+use Symfony\Component\HttpFoundation\Request;
 
 class PageController
 {

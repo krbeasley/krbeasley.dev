@@ -24,7 +24,7 @@ class Router
         ];
     }
 
-    /** Handle an incoming request
+    /** Handle an incoming request.
      *
      * @param Request $request
      * @throws Exception
@@ -57,7 +57,9 @@ class Router
 
         // Run the route's action
         try {
-            call_user_func([$class, $action]);
+            // Pass the request object by default. You're free to access it if
+            // you want from within the method.
+            call_user_func([$class, $action], $request);
         } catch (Exception $e) {
             // Get the error code
             $code = $e->getCode();
@@ -67,6 +69,7 @@ class Router
                 $code = 500; // Set the code to 500 by default.
             }
 
+            // Call the error controller as a safety net.
             call_user_func([PageController::class, "fallback"], $code);
         }
     }
