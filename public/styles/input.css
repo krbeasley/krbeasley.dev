@@ -18,7 +18,7 @@
 }
 .bg-glass.frosted {
     /* Thanks @tim.baker on StackOverflow at https://stackoverflow.com/questions/4011113/can-you-add-noise-to-a-css-gradient */
-    background-image: url("/public/images/noise.svg");
+    background-image: url("/images/noise.svg");
 }
 .bg-glass:hover, .bg-glass:active {
     box-shadow: 0 5px 2rem hsl(219, 80%, 18%),
