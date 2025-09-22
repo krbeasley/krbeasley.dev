@@ -6,6 +6,7 @@ ini_set('display_startup_errors', 1);
 
 require_once dirname(__DIR__) . "/vendor/autoload.php";
 
+use App\Logging\Logger;
 use Dotenv\Dotenv;
 use \Symfony\Component\HttpFoundation\Request;
 use App\Router\Router;
@@ -22,6 +23,10 @@ $router = new Router(); // Load the router
 
 // Process the request
 try {
+    if ($logger = Logger::channel('app')) {
+        $logger->log($request->getPathInfo());
+    }
+
     $router->handle($request);
 } catch (\Exception $e) {
     echo $e->getMessage();

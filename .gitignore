@@ -5,3 +5,4 @@ node_modules/
 vendor/
 .env
 public/styles/output.css
+storage/logs/*
