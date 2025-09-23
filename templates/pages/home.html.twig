@@ -3,8 +3,8 @@
 {% block title %}{{ parent() }} | Solutions Engineer{% endblock %}
 
 {% block main %}
-    <div class="flex flex-col md:flex-row gap-10 md:gap-20 w-full items-center justify-center px-10">
-        <div class="w-full md:w-1/2 flex flex-col items-start justify-center gap-6">
+    <div class="flex flex-col md:flex-row gap-10 md:gap-20 w-full items-center justify-center px-4">
+        <div class="w-full md:w-1/2 flex flex-col items-center md:items-start justify-center gap-6">
             <p class="text-text text-center md:text-left text-2xl font-black capitalize">
                 Web solutions to help your business run smarter.
             </p>
@@ -20,6 +20,7 @@
                         'class' : 'invert-80 hover:invert-100 duration-100 transition cursor-pointer h-10 w-10'
                     } %}
                 </a>
+
                 {% include "components/ui/glass-button.html.twig" with {
                     'text' : "Let's Work Together",
                     'href' : '/hire-me',
@@ -27,6 +28,7 @@
                 } %}
             </div>
         </div>
+
         <div class="w-full md:w-1/2 items-center">
             <img src="/images/me_pfp.jpg" alt="Me!"
                 class="mx-auto object-cover w-full max-w-[300px] h-100 md:w-[340px] md:h-[340px] lg:w-[550px]
@@ -36,7 +38,7 @@
 
     {% include "components/ui/divider.html.twig" %}
 
-    <div class="flex flex-col gap-10 md:gap-20 w-full items-center justify-center px-10">
+    <div class="flex flex-col gap-10 md:gap-20 w-full items-center justify-center px-4">
         <p class="text-text text-lg text-center">
             I'm Kyle, a full stack web developer who helps small to medium-sized businesses turn messy processes into
             smooth systems. <i class="text-primary">I don't just build websites, I create tools that solve problems.</i> Whether that's cutting
@@ -54,5 +56,21 @@
 
     <div class="flex flex-col gap-10 md:gap-20 w-full items-center justify-center px-10">
         <p class="text-primary font-black text-2xl">Services</p>
+
+        <div class="w-11/12 max-w-[650px] text-text flex items-center justify-center">
+            <div class="h-full w-1/5 min-w-[35px] flex items-start justify-end">
+                <img src="images/icons/google_workspace_logo.png" alt="Google Logo"
+                class="h-[35px] w-[35px]" />
+            </div>
+
+            <div class="w-4/5 flex flex-col gap-6">
+                <p class="text-lg font-bold">Automation and Google Workspace Tools</p>
+                <p class="text-lg">
+                    Whether you need a customer-facing website or a secure internal portal, I can set up, host, and
+                    maintain reliable solutions that just work. From simple sites to more complex systems, I keep it
+                    affordable and practical.
+                </p>
+            </div>
+        </div>
     </div>
 {% endblock %}
