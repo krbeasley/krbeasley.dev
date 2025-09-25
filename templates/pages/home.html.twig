@@ -3,6 +3,7 @@
 {% block title %}{{ parent() }} | Solutions Engineer{% endblock %}
 
 {% block main %}
+    {# Hero Section #}
     <div class="flex flex-col md:flex-row gap-10 md:gap-20 w-full items-center justify-center px-4">
         <div class="w-full md:w-1/2 flex flex-col items-center md:items-start justify-center gap-6">
             <p class="text-text text-center md:text-left text-2xl font-black capitalize">
@@ -38,6 +39,7 @@
 
     {% include "components/ui/divider.html.twig" %}
 
+    {# "About" / Mission Statement #}
     <div class="flex flex-col gap-10 md:gap-20 w-full items-center justify-center px-4">
         <p class="text-text text-lg text-center">
             I'm Kyle, a full stack web developer who helps small to medium-sized businesses turn messy processes into
@@ -54,23 +56,79 @@
 
     {% include "components/ui/divider.html.twig" %}
 
-    <div class="flex flex-col gap-10 md:gap-20 w-full items-center justify-center px-10">
+    {# Services Preview Section #}
+    <div class="flex flex-col gap-10 md:gap-20 w-full items-center justify-center px-4">
         <p class="text-primary font-black text-2xl">Services</p>
 
-        <div class="w-11/12 max-w-[650px] text-text flex items-center justify-center">
-            <div class="h-full w-1/5 min-w-[35px] flex items-start justify-end">
+        {# Google Workspace Service Card #}
+        <div class="w-11/12 max-w-[650px] text-text flex flex-col items-center justify-center bg-glass
+        py-10 px-6 rounded-md shadow-white/15 shadow-md gap-10">
+            <div class="flex flex-col w-full items-center justify-center gap-6">
                 <img src="images/icons/google_workspace_logo.png" alt="Google Logo"
-                class="h-[35px] w-[35px]" />
+                class="h-[50px] w-[50px]" />
+                <h1 class="text-lg font-bold text-center">Google Workspace Tools &amp; Automation</h1>
             </div>
 
-            <div class="w-4/5 flex flex-col gap-6">
-                <p class="text-lg font-bold">Automation and Google Workspace Tools</p>
-                <p class="text-lg">
-                    Whether you need a customer-facing website or a secure internal portal, I can set up, host, and
-                    maintain reliable solutions that just work. From simple sites to more complex systems, I keep it
-                    affordable and practical.
+            <div class="w-full flex flex-col items-center justify-center gap-14">
+                <p class="text-lg text-center">
+                    Automate tasks and connect Google Workspace with your business tools. From setup to ongoing
+                    support, I streamline workflows that save time and boost productivity.
                 </p>
+
+                <a href="/services?scroll=" class="text-text flex items-center justify-center w-11/12 max-w-[220px]
+                border-white/35 border-1 p-2 rounded-sm hover:border-white/80 transition-all duration-150 text-sm">
+                    Explore Tools
+                </a>
+            </div>
+        </div>
+
+        {# Full Stack Service Card #}
+        <div class="w-11/12 max-w-[650px] text-text flex flex-col items-center justify-center bg-glass gap-10
+        py-10 px-6 rounded-md shadow-white/15 shadow-md">
+            <div class="flex flex-col w-full items-center justify-center gap-6">
+                <img src="images/icons/server.svg" alt="Google Logo"
+                     class="h-[50px] w-[50px]" />
+                <h1 class="text-lg font-bold text-center">Full Stack Web Development</h1>
+            </div>
+
+            <div class="w-full flex flex-col items-center justify-center gap-14">
+                <p class="text-lg text-center">
+                    Custom websites and web apps built from front to back. I also provide hosting and DNS management,
+                    delivering fast, secure, and scalable solutions tailored to your business needs.
+                </p>
+
+                <a href="/services?scroll=" class="text-text flex items-center justify-center w-11/12 max-w-[220px]
+                border-white/35 border-1 p-2 rounded-sm hover:border-white/80 transition-all duration-150 text-sm">
+                    View Projects
+                </a>
+            </div>
+        </div>
+
+        {# API Development Sevice Card #}
+        <div class="w-11/12 max-w-[650px] text-text flex flex-col items-center justify-center bg-glass gap-10
+        py-10 px-6 rounded-md shadow-white/15 shadow-md">
+            <div class="flex flex-col w-full items-center justify-center gap-6">
+                <img src="images/icons/network-right.svg" alt="Network right icon"
+                     class="h-[50px] w-[50px]" />
+                <h1 class="text-lg font-bold text-center">API Development &amp; Integration</h1>
+            </div>
+
+            <div class="w-full flex flex-col items-center justify-center gap-14">
+                <p class="text-lg text-center">
+                    Seamlessly connect your software with powerful APIs. I handle development, integration, and
+                    maintenance to ensure secure and reliable data flow across your systems.
+                </p>
+
+                <a href="/services?scroll=" class="text-text flex items-center justify-center w-11/12 max-w-[220px]
+                border-white/35 border-1 p-2 rounded-sm hover:border-white/80 transition-all duration-150 text-sm">
+                    Explore The Possibilities
+                </a>
             </div>
         </div>
     </div>
+
+    {% include "components/ui/divider.html.twig" %}
+
+    {# Recent Projects Section #}
+    <div class=""></div>
 {% endblock %}
