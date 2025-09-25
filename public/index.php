@@ -22,11 +22,14 @@ $request = Request::createFromGlobals();
 // Build the router object
 $router = new Router();
 
+function test() {return 200;}
+
 // Create the allowed routes
 $routes = [
     new Route('/', "GET", [PageController::class, 'home']),
     new Route('/about', "GET", [PageController::class, 'about']),
     new Route('/hire-me', "GET", [PageController::class, 'hireMe']),
+    new Route('/status', "GET", fn() => test()),
 ];
 
 // Load the routes into the router
