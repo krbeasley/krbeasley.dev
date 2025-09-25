@@ -49,7 +49,7 @@ RedirectMatch 403 ^\.htaccess
 # CUSTOM ERROR PAGES
 
 # 404 Page
-ErrorDocument 404 /404.php
+# ErrorDocument 404 /404.php
 
 # 403 Page
-ErrorDocument 403 /403.php
+# ErrorDocument 403 /403.php
