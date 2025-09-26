@@ -6,10 +6,12 @@
 #-----------------------------------------------------------------------------------------------------------------------
 
 # Every request goes to the index page unless it's an actual file
-RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ /index.php?path=$1 [NC,L,QSA]
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ /index.php?path=$1 [NC,L,QSA]
+</IfModule>
 
 ########################################################################################################################
 # SECURITY AND ACCESS CONTROL
@@ -43,7 +45,6 @@ Options -Indexes
 
 # 404 all requests made to the these directories
 RedirectMatch 404 ^/(node_modules|\.git|config|templates|vendor|app)
-RedirectMatch 403 ^\.htaccess
 
 ########################################################################################################################
 # CUSTOM ERROR PAGES
