@@ -10,7 +10,7 @@
     RewriteEngine On
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.*)$ /index.php?path=$1 [NC,L,QSA]
+    RewriteRule ^(.*)$ public/index.php?path=$1 [NC,L,QSA]
 </IfModule>
 
 ########################################################################################################################
@@ -19,28 +19,24 @@
 # Disallow indexing of directories
 Options -Indexes
 
-# Disallow access to .env
+# Dissallow from .env
 <Files .env>
-    Order deny,allow
-    Deny from all
+    Require all denied
 </Files>
 
-# Disallow direct access to the twig files
+# Dissallow from twig directly
 <Files *.twig>
-    Order allow,deny
-    Deny from all
+    Require all denied
 </Files>
 
-# Disallow direct access to the .git files
+# Dissallow from .gitignore
 <Files .gitignore>
-    Order allow,deny
-    Deny from all
+    Require all denied
 </Files>
 
-# Disallow direct access to the composer files
+# Dissallow from composer files
 <Files composer.*>
-    Order allow,deny
-    Deny from all
+    Require all denied
 </Files>
 
 # 404 all requests made to the these directories
