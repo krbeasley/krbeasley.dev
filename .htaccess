@@ -10,7 +10,7 @@
     RewriteEngine On
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.*)$ public/index.php?path=$1 [NC,L,QSA]
+    RewriteRule ^(.*)$ /index.php?path=$1 [NC,L,QSA]
 </IfModule>
 
 ########################################################################################################################
@@ -42,11 +42,3 @@ Options -Indexes
 # 404 all requests made to the these directories
 RedirectMatch 404 ^/(node_modules|\.git|config|templates|vendor|app)
 
-########################################################################################################################
-# CUSTOM ERROR PAGES
-
-# 404 Page
-# ErrorDocument 404 /404.php
-
-# 403 Page
-# ErrorDocument 403 /403.php
