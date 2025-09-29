@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}krbeasley.dev{% endblock %}</title>
+    <link rel="stylesheet" href="/public/styles/output.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body class="bg-background">
+    <header class="mx-auto w-11/12 h-30 max-w-[120ch] flex flex-col items-start justify-center gap-2 border-b-1
+    border-b-neutral-800 px-8">
+        <a href="/" class="text-text text-2xl">Kyle Beasley</a>
+
+        <nav class="flex items-center justify-end gap-10">
+            <a href="/about" class="text-primary cursor-pointer hover:text-text transition duration-100
+            text-sm">About</a>
+            <a href="/blog" class="text-primary cursor-pointer hover:text-text transition duration-100
+            text-sm">Blog</a>
+            <a href="/hire-me" class="text-primary cursor-pointer hover:text-text transition duration-100
+            text-sm">Hire Me</a>
+        </nav>
+    </header>
+    <main class="mx-auto py-20 w-11/12 max-w-[120ch]">
+        {% block main %}{% endblock %}
+    </main>
+    <footer class="mx-auto max-w-[120ch] h-10 flex justify-between items-center border-t-1 border-t-neutral-800 px-8">
+        <p class="text-text text-xs">© {{ "now"|date("Y") }} Kyle Beasley</p>
+
+        <div class="flex items-center justify-end gap-4">
+            <a href="" class="text-text hover:text-primary duration-100 transition text-xs">GitHub</a>
+        </div>
+    </footer>
+</body>
+</html>

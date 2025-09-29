@@ -15,7 +15,8 @@
     "vlucas/phpdotenv": "^5.6@dev",
     "twig/twig": "^3.21",
     "symfony/http-foundation": "7.3",
-    "cheechstack/routing": "dev-main"
+    "cheechstack/routing": "dev-main",
+    "erusev/parsedown": "dev-master"
   },
   "autoload": {
     "files" : [

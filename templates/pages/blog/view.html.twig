@@ -1,0 +1,12 @@
+{% extends "layouts/blog.html.twig" %}
+
+{% block title %}
+    {{ postTitle }} | Blog | {{ parent() }}
+{% endblock %}
+
+{% block main %}
+<div id="blog" class="text-text flex flex-col items-center justify-center">
+    {{ postContent|raw }}
+</div>
+{% endblock %}
+

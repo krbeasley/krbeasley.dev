@@ -10,7 +10,7 @@ use Dotenv\Dotenv;
 use Symfony\Component\HttpFoundation\Request;
 use Cheechstack\Routing\Router;
 use Cheechstack\Routing\Route;
-use App\Http\PageController;
+use App\Http;
 
 // Load the ENV file
 $dotenv = Dotenv::createImmutable(__DIR__);
@@ -24,11 +24,19 @@ $router = new Router();
 
 function test() {return 200;}
 
+
 // Create the allowed routes
 $routes = [
-    new Route('/', "GET", [PageController::class, 'home']),
-    new Route('/about', "GET", [PageController::class, 'about']),
-    new Route('/hire-me', "GET", [PageController::class, 'hireMe']),
+    // Generic Static Routes
+    new Route('/', "GET", [Http\PageController::class, 'home']),
+    new Route('/about', "GET", [Http\PageController::class, 'about']),
+    new Route('/hire-me', "GET", [Http\PageController::class, 'hireMe']),
+
+    // Blog Routes
+    new Route('/blog', "GET", [Http\BlogController::class, 'index']),
+    new Route('/blog/:slug', "GET", [Http\BlogController::class, 'view']),
+
+    // Status Route
     new Route('/status', "GET", fn() => test()),
 ];
 
