@@ -3,11 +3,67 @@
 {% block title %}{{ parent() }} | Solutions Engineer{% endblock %}
 
 {% block main %}
-    <div class="flex flex-col md:flex-row gap-10 md:gap-20 w-full items-center justify-center px-10">
-        <p class="text-text">Hire Me</p>
+<div class="flex flex-col md:flex-row gap-10 w-full items-center justify-center px-10 md:px-0">
+    <div class="w-full md:w-3/4 lg:w-3/5">
+      <div class="w-full flex flex-col gap-10">
+          <p class="text-text text-4xl md:text-5xl lg:text-[42pt]">Let's start something<br/>together.</p>
+
+          <p class="text-text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias at, atque beatae cupiditate ea enim error
+              eveniet hic libero, modi nulla placeat quod reiciendis rem repellat reprehenderit soluta!
+          </p>
+      </div>
     </div>
 
-    <div class="h-100 w-100 bg-teal noise"></div>
+    <div class="w-full md:w-1/4 lg:w-2/5">
+        {# This is empty for spacing in the layout #}
+    </div>
+</div>
 
-    {% include "components/ui/divider.html.twig" %}
+{% include "components/ui/divider.html.twig" %}
+
+<div class="flex flex-col w-full relative text-text items-center justify-center">
+    <div class="w-full flex justify-start items-center px-10 md:px-0 mb-10">
+        <p class="text-3xl text-text/30">Who are you?</p>
+    </div>
+
+    <form action="/" method="POST" class="flex flex-col items-start justify-center relative gap-10 w-full">
+        {# Honeypot #}
+        <div class="absolute w-0 h-0 top-0 lef-[-9999px] overflow-hidden">
+            <label for="website">Website</label>
+            <input type="text" name="website" aria-hidden="true" aria-disabled="true">
+        </div>
+
+        <div class="flex flex-col md:flex-row w-full gap-10 px-10 md:px-0">
+            {# Visitor Name #}
+            {% include "components/forms/text-input.html.twig" with {
+                "label" : "Your Name",
+                "tag" : "name",
+                "placeholder" : "Joe Random"
+            } %}
+
+            {# Visitor Email Address #}
+            {% include "components/forms/text-input.html.twig" with {
+                "label" : "Your Email",
+                "tag" : "email",
+                "placeholder" : "email@example.com"
+            } %}
+        </div>
+
+        <div class="flex items-center justify-center w-full px-10 md:px-0">
+            {% include "components/forms/textarea.html.twig" with {
+                "label" : "Leave A Message",
+                "tag" : "message",
+                "placeholder" : "Lorem ipsum doler sit amet..."
+            } %}
+        </div>
+
+        <button type="button" class="mx-auto px-6 py-4 text-center min-w-[200px] mt-10 bg-neutral-700 text-text/50
+        cursor-not-allowed" aria-disabled="true">Submit</button>
+    </form>
+</div>
+
+<script src="/public/js/hire-me.js">
+</script>
+
 {% endblock %}
