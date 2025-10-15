@@ -21,7 +21,7 @@ class BlogController extends Controller
     public static function index() : Response
     {
         $c = new BlogController();
-        $html = $c->twig->render("pages/blog.html.twig");
+        $html = $c->twig->render("pages/blog/index.html.twig");
 
         return new Response($html, 200);
     }
