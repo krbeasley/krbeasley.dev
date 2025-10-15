@@ -1,0 +1,20 @@
+<div class="w-11/12 lg:h-full max-w-[650px] text-text flex flex-col items-center justify-start bg-glass
+        py-10 md:py-16 px-6 rounded-md shadow-white/15 shadow-md gap-10">
+    <div class="flex flex-col w-full items-center justify-center gap-6">
+        <img src="{{ img_path }}" alt="{{ img_alt }}"
+             class="h-[50px] w-[50px]" />
+        <h1 class="text-lg font-bold text-center">{{ card_title }}</h1>
+    </div>
+
+    <div class="w-full flex flex-col items-center justify-center gap-14">
+        <p class="text-lg text-center">
+            {{ card_text }}
+        </p>
+
+        <a href="{{ button_link }}" class="text-text flex items-center justify-center w-11/12 max-w-[220px]
+                border-white/35 border-1 p-2 rounded-sm hover:border-primary/80 transition-all duration-150
+                text-sm hover:bg-primary/10">
+            {{ button_text }}
+        </a>
+    </div>
+</div>

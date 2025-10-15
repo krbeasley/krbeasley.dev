@@ -4,9 +4,9 @@
 
 {% block main %}
     {# Hero Section #}
-    <div class="flex flex-col md:flex-row gap-10 md:gap-20 w-full items-center justify-center px-4">
-        <div class="w-full md:w-1/2 flex flex-col items-center md:items-start justify-center gap-6">
-            <p class="text-text text-center md:text-left text-2xl font-black capitalize">
+    <div class="flex flex-col md:flex-row gap-10 md:gap-20 w-full items-center justify-center">
+        <div class="w-full md:w-3/5 flex flex-col items-center md:items-start justify-center gap-6 grow">
+            <p class="text-center md:text-left capitalize text-text text-4xl md:text-5xl lg:text-[42pt]">
                 Web solutions to help your business run smarter.
             </p>
 
@@ -15,7 +15,7 @@
                 solutions for a variety of problems.
             </p>
 
-            <div class="flex flex-col-reverse pt-2 md:pt-0 md:flex-row items-center justify-start gap-6">
+            <div class="flex flex-col-reverse pt-2 md:pt-10 md:flex-row items-center justify-start gap-6">
                 <a class="h-fit w-fit" href="https://www.github.com/krbeasley" target="_blank">
                     {% include "components/ui/github-icon.html.twig" with {
                         'class' : 'invert-80 hover:invert-100 duration-100 transition cursor-pointer h-10 w-10'
@@ -30,8 +30,8 @@
             </div>
         </div>
 
-        <div class="w-full md:w-1/2 items-center">
-            <img src="public/images/me_pfp.jpg" alt="Me!"
+        <div class="w-fit items-center justify-end">
+            <img src="/public/images/me_pfp.jpg" alt="Me!"
                 class="mx-auto object-cover w-full max-w-[300px] h-100 md:w-[340px] md:h-[340px] lg:w-[550px]
                 lg:h-[450px] rounded-lg">
         </div>
@@ -54,81 +54,29 @@
         } %}
     </div>
 
-    {% include "components/ui/divider.html.twig" %}
+    {# Service Card Previews #}
+    {% if service_cards is defined %}
+        {# Extra Divider for this section #}
+        {% include "components/ui/divider.html.twig" %}
 
-    {# Services Preview Section #}
-    <div class="flex flex-col gap-10 md:gap-20 w-full items-center justify-center px-4">
-        <p class="text-primary font-black text-2xl">Services</p>
+        {# Services Preview Section #}
+        <div class="flex flex-col gap-10 md:gap-16 w-full items-center justify-center px-4">
+            <p class="text-primary text-2xl md:text-4xl lg:text-[36pt]">Services</p>
 
-        {# Google Workspace Service Card #}
-        <div class="w-11/12 max-w-[650px] text-text flex flex-col items-center justify-center bg-glass
-        py-10 px-6 rounded-md shadow-white/15 shadow-md gap-10">
-            <div class="flex flex-col w-full items-center justify-center gap-6">
-                <img src="public/images/icons/google_workspace_logo.png" alt="Google Logo"
-                class="h-[50px] w-[50px]" />
-                <h1 class="text-lg font-bold text-center">Google Workspace Tools &amp; Automation</h1>
-            </div>
-
-            <div class="w-full flex flex-col items-center justify-center gap-14">
-                <p class="text-lg text-center">
-                    Automate tasks and connect Google Workspace with your business tools. From setup to ongoing
-                    support, I streamline workflows that save time and boost productivity.
-                </p>
-
-                <a href="/services?scroll=" class="text-text flex items-center justify-center w-11/12 max-w-[220px]
-                border-white/35 border-1 p-2 rounded-sm hover:border-white/80 transition-all duration-150 text-sm">
-                    Explore Tools
-                </a>
+            <div class="flex flex-col lg:flex-row gap-10 md:gap-12 items-center justify-center">
+                {% for card in service_cards %}
+                    {% include "components/home-service-card.html.twig" with {
+                        "card_title" : card["card_title"],
+                        "card_text" : card["card_text"],
+                        "img_path" : card["img_path"],
+                        "img_alt" : card["img_alt"],
+                        "button_link" : card["button_link"],
+                        "button_text" : card["button_text"],
+                    } %}
+                {% endfor %}
             </div>
         </div>
+    {% endif %}
 
-        {# Full Stack Service Card #}
-        <div class="w-11/12 max-w-[650px] text-text flex flex-col items-center justify-center bg-glass gap-10
-        py-10 px-6 rounded-md shadow-white/15 shadow-md">
-            <div class="flex flex-col w-full items-center justify-center gap-6">
-                <img src="public/images/icons/server.svg" alt="Google Logo"
-                     class="h-[50px] w-[50px]" />
-                <h1 class="text-lg font-bold text-center">Full Stack Web Development</h1>
-            </div>
-
-            <div class="w-full flex flex-col items-center justify-center gap-14">
-                <p class="text-lg text-center">
-                    Custom websites and web apps built from front to back. I also provide hosting and DNS management,
-                    delivering fast, secure, and scalable solutions tailored to your business needs.
-                </p>
-
-                <a href="/services?scroll=" class="text-text flex items-center justify-center w-11/12 max-w-[220px]
-                border-white/35 border-1 p-2 rounded-sm hover:border-white/80 transition-all duration-150 text-sm">
-                    View Projects
-                </a>
-            </div>
-        </div>
-
-        {# API Development Sevice Card #}
-        <div class="w-11/12 max-w-[650px] text-text flex flex-col items-center justify-center bg-glass gap-10
-        py-10 px-6 rounded-md shadow-white/15 shadow-md">
-            <div class="flex flex-col w-full items-center justify-center gap-6">
-                <img src="public/images/icons/network-right.svg" alt="Network right icon"
-                     class="h-[50px] w-[50px]" />
-                <h1 class="text-lg font-bold text-center">API Development &amp; Integration</h1>
-            </div>
-
-            <div class="w-full flex flex-col items-center justify-center gap-14">
-                <p class="text-lg text-center">
-                    Seamlessly connect your software with powerful APIs. I&nbsp;handle development, integration, and
-                    maintenance to ensure secure and reliable data flow across your&nbsp;systems.
-                </p>
-
-                <a href="/services?scroll=" class="text-text flex items-center justify-center w-11/12 max-w-[220px]
-                border-white/35 border-1 p-2 rounded-sm hover:border-white/80 transition-all duration-150 text-sm">
-                    Explore The Possibilities
-                </a>
-            </div>
-        </div>
-    </div>
-
-    {% include "components/ui/divider.html.twig" %}
-
-    {# Recent Projects Section #}
-    <div class=""></div>
+    {# Todo: You should figure out more content to put here #}
 {% endblock %}
