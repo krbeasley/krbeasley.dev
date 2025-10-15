@@ -22,9 +22,6 @@ $request = Request::createFromGlobals();
 // Build the router object
 $router = new Router();
 
-function test() {return 200;}
-
-
 // Create the allowed routes
 $routes = [
     // Generic Static Routes
@@ -36,8 +33,8 @@ $routes = [
     new Route('/blog', "GET", [Http\BlogController::class, 'index']),
     new Route('/blog/:slug', "GET", [Http\BlogController::class, 'view']),
 
-    // Status Route
-    new Route('/status', "GET", fn() => test()),
+    // Tools
+    new Route('/tools', "GET", [Http\ToolsController::class, 'index']),
 ];
 
 // Load the routes into the router
