@@ -33,6 +33,11 @@ $routes = [
     new Route('/blog', "GET", [Http\BlogController::class, 'index']),
     new Route('/blog/:slug', "GET", [Http\BlogController::class, 'view']),
 
+    // Services Routes
+    new Route('/workspace-integrations', "GET", [Http\ServicesController::class, 'googleWorkspace']),
+    new Route('/web-development', "GET", [Http\ServicesController::class, 'webDevelopment']),
+    new Route('/custom-solutions', "GET", [Http\ServicesController::class, 'customSolutions']),
+
     // Tools
     new Route('/tools', "GET", [Http\ToolsController::class, 'index']),
 ];
@@ -49,5 +54,5 @@ if ($response->getStatusCode() === 200) {
 }
 // Return error fallback otherwise
 else {
-    (PageController::fallback($response->getStatusCode()))->send();
+    (Http\PageController::fallback($response->getStatusCode()))->send();
 }

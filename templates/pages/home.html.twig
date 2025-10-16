@@ -4,9 +4,10 @@
 
 {% block main %}
     {# Hero Section #}
-    <div class="flex flex-col md:flex-row gap-10 md:gap-20 w-full items-center justify-center">
-        <div class="w-full md:w-3/5 flex flex-col items-center md:items-start justify-center gap-6 grow">
-            <p class="text-center md:text-left capitalize text-text text-4xl md:text-5xl lg:text-[42pt]">
+    <div class="flex flex-col md:flex-row gap-20 w-full items-center justify-center md:justify-start relative">
+        <div class="z-10 w-full md:w-3/5 flex flex-col items-center md:items-start justify-center gap-12 md:gap-10
+        lg:gap-6 h-140">
+            <p class="text-center md:text-left capitalize text-text text-4xl md:text-5xl lg:text-[42pt] text-shadow-sm">
                 Web solutions to help your business run smarter.
             </p>
 
@@ -30,10 +31,10 @@
             </div>
         </div>
 
-        <div class="w-fit items-center justify-end">
-            <img src="/public/images/me_pfp.jpg" alt="Me!"
-                class="mx-auto object-cover w-full max-w-[300px] h-100 md:w-[340px] md:h-[340px] lg:w-[550px]
-                lg:h-[450px] rounded-lg">
+        <div class="z-0 absolute w-[60vw] top-1/10 right-0 flex items-center justify-center overflow-visible h-4/5
+        rounded-xl">
+            <img src="/public/images/glow_frame.png" alt="Me!"
+                class="mx-auto object-cover w-full h-auto rounded-lg ml-20">
         </div>
     </div>
 

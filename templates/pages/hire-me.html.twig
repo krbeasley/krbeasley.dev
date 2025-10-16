@@ -22,12 +22,12 @@
 
 {% include "components/ui/divider.html.twig" %}
 
-<div class="flex flex-col w-full relative text-text items-center justify-center">
-    <div class="w-full flex justify-start items-center px-10 md:px-0 mb-10">
-        <p class="text-3xl text-text/30">Who are you?</p>
+<div class="flex flex-col w-full relative text-text items-center justify-center gap-10">
+    <div class="w-full flex justify-start items-center px-10 md:px-0">
+        <p class="text-5xl text-text/60">Reach out directly.</p>
     </div>
 
-    <form action="/" method="POST" class="flex flex-col items-start justify-center relative gap-10 w-full">
+    <form action="/" method="POST" class="flex flex-col items-start justify-center relative gap-10 w-full mb-10">
         {# Honeypot #}
         <div class="absolute w-0 h-0 top-0 lef-[-9999px] overflow-hidden">
             <label for="website">Website</label>
@@ -61,6 +61,15 @@
         <button type="button" class="mx-auto px-6 py-4 text-center min-w-[200px] mt-10 bg-neutral-700 text-text/50
         cursor-not-allowed" aria-disabled="true">Submit</button>
     </form>
+
+
+    <div class="w-full flex justify-start items-center px-10 md:px-0">
+        <p class="text-5xl text-text/60">Or schedule a meeting.</p>
+    </div>
+    <!-- Calendly inline widget begin -->
+    <div class="calendly-inline-widget w-full h-200" data-url="https://calendly.com/krbeasley/30min?hide_event_type_details=1&hide_gdpr_banner=1"></div>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    <!-- Calendly inline widget end -->
 </div>
 
 <script src="/public/js/hire-me.js">

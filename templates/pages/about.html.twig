@@ -3,11 +3,42 @@
 {% block title %}{{ parent() }} | Solutions Engineer{% endblock %}
 
 {% block main %}
-    <div class="flex flex-col md:flex-row gap-10 md:gap-20 w-full items-center justify-center px-10">
-        <p class="text-text">About Page</p>
-    </div>
+    <div class="flex flex-col lg:flex-row gap-10 items-center justify-center lg:justify-between">
+        <div class="flex flex-col text-text text-lg gap-10 w-full">
+            <p class="text-5xl text-text">
+                Hi, I’m Kyle.
+            </p>
+            <p>
+                A full stack web developer with a passion for building efficient, reliable, and modern web solutions. I
+                specialize in PHP, Laravel, and SQL, and I’m experienced in managing Unix-based servers, hosting
+                environments, and DNS.
+            </p>
+            <p>
+                I enjoy solving real problems with practical, well-built systems — whether that means automating workflows,
+                integrating APIs, or developing complete web applications from the ground up.
+            </p>
+            <p>
+                My goal is simple: to help businesses and individuals make technology work for them. Whether you need a
+                small improvement or a full-scale custom platform, I bring the same level of care, precision, and
+                creativity to every project.
+            </p>
+            <p>
+                When I’m not coding, you’ll usually find me exploring new tech, improving my workflows, or learning
+                something new to push my skills further.
+            </p>
+            <p class="after:h-1 after:w-100 after:bg-primary content-['_']">
+                Let’s build something great together.
+            </p>
 
-    <div class="h-100 w-100 bg-teal noise"></div>
+            <a href="/hire-me">Contact Me</a>
+        </div>
+
+        <div class="w-fit items-center justify-end">
+            <img src="/public/images/me_pfp.jpg" alt="Me!"
+                 class="mx-auto object-cover w-full max-w-[300px] h-100 md:w-[340px] md:h-[340px] lg:w-[550px]
+                lg:h-[450px] rounded-lg">
+        </div>
+    </div>
 
     {% include "components/ui/divider.html.twig" %}
 {% endblock %}
