@@ -25,6 +25,7 @@ class PageController extends Controller
                 "img_alt" => "Google Workspace Logo",
                 "button_link" => "/workspace-integrations",
                 "button_text" => "Explore Examples",
+                "card_tags" => ["App Script", "Calendar", "Forms"],
             ],
             [
                 "card_title" => "Full Stack Web Development",
@@ -33,6 +34,7 @@ class PageController extends Controller
                 "img_alt" => "Server SVG Icon",
                 "button_link" => "/web-development",
                 "button_text" => "View Projects",
+                "card_tags" => ["PHP", "Symfony", "Laravel"]
             ],
             [
                 "card_title" => "Custom Software & Systems Solutions",
@@ -41,6 +43,7 @@ class PageController extends Controller
                 "img_alt" => "Network right icon",
                 "button_link" => "/custom-solutions",
                 "button_text" => "Explore the Possibilities",
+                "card_tags" => ["SQL", "REST API", "Python"]
             ],
         ];
 

@@ -3,9 +3,10 @@
 {% block title %}{{ parent() }} | Solutions Engineer{% endblock %}
 
 {% block main %}
-    <div class="flex flex-col lg:flex-row gap-10 items-center justify-center lg:justify-between">
+    <div class="flex flex-col lg:flex-row gap-20 items-center justify-center lg:justify-between mt-20 lg:px-10">
         <div class="flex flex-col text-text text-lg gap-10 w-full">
-            <p class="text-5xl text-text">
+            <p class="text-5xl text-text relative after:absolute after:-bottom-4 after:left-0 after:content-['_']
+            after:h-[2px] after:w-full after:bg-primary w-fit">
                 Hi, I’m Kyle.
             </p>
             <p>
@@ -30,7 +31,13 @@
                 Let’s build something great together.
             </p>
 
-            <a href="/hire-me">Contact Me</a>
+            <a href="/hire-me" class="flex items-center justify-start hover:text-primary gap-2 hover:gap-4 relative
+            transition-all duration-100 ease-in-out after:content-['_'] after:w-0 after:h-[1px] hover:after:w-full
+            after:bg-primary after:absolute after:bottom-0 after:left-0 after:transition-all after:duration-200
+            after:ease-in-out w-fit">
+                Contact Me
+                <span class="text-2xl mb-1">⇒</span>
+            </a>
         </div>
 
         <div class="w-fit items-center justify-end">
